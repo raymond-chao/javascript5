@@ -28,3 +28,35 @@ const account = {
         alert("Account Error: Account not found!");
     }
 };
+function atm() {
+    while (true) {
+        const choice = parseInt(
+            prompt(
+                "Select a choice:\n1.) See balance\n2.) Make a deposit\n3.) Make a withdrawal\n4.) Get account name\n5.) Exit"
+            )
+        );
+
+        switch (choice) {
+            case 1:
+                account.getBalance();
+                break;
+            case 2:
+                const depositAmount = parseFloat(prompt("Enter amount to deposit:"));
+                account.deposit(depositAmount);
+                break;
+            case 3:
+                const withdrawalAmount = parseFloat(prompt("Enter amount to withdraw:"));
+                account.withdrawal(withdrawalAmount);
+                break;
+            case 4:
+                account.getAccountName();
+                break;
+            case 5:
+                alert("Exiting ATM. Thank you!");
+                return;
+            default:
+                account.accountError();
+        }
+    }
+}
+
